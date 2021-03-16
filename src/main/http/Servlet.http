@@ -1,0 +1,5 @@
+GET http://localhost:8080/request-header?username=hello
+
+###
+GET http://localhost:8080/request-param?username=hello&age=20
+
