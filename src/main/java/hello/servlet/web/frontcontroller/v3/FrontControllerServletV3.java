@@ -2,7 +2,6 @@ package hello.servlet.web.frontcontroller.v3;
 
 import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.MyView;
-import hello.servlet.web.frontcontroller.v2.ControllerV2;
 import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
@@ -42,7 +41,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         }
 
         //paramMap
-        HashMap<String, String> paramMap = createParamMap(request);
+        Map<String, String> paramMap = createParamMap(request);
 
         ModelView mv = controller.process(paramMap);
         String viewName = mv.getViewName(); //논리이름 new-form
@@ -57,7 +56,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         return view;
     }
 
-    private HashMap<String, String> createParamMap(HttpServletRequest request) {
+    private Map<String, String> createParamMap(HttpServletRequest request) {
         HashMap<String, String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
