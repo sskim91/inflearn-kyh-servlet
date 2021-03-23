@@ -19,6 +19,7 @@ public class MemberListControllerV4 implements ControllerV4 {
     public String process(Map<String, String> paramMap, Map<String, Object> model) {
         List<Member> members = memberRepository.findAll();
 
+        //모델이 파라미터로 전달되기 때문에, 모델을 직접 생성하지 않아도 된다.
         model.put("members", members);
         return "members";
     }
